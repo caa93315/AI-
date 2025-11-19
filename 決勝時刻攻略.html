@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>決勝時刻穩贏攻略 - Call of Duty Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #ff6b35;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b35;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: #ff6b35;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23ff6b35;stop-opacity:0.3" /><stop offset="100%" style="stop-color:%231a1a2e;stop-opacity:0.1" /></linearGradient></defs><rect width="1200" height="600" fill="url(%23grad1)"/></svg>') center/cover;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ff6b35;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .strategy-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .strategy-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.2);
+        }
+
+        .strategy-card h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .weapon-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .weapon-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #ff6b35;
+        }
+
+        .weapon-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff6b35;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            overflow: hidden;
+        }
+
+        .stat-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35, #f7931e);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        .tips-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .tip-number {
+            background: #ff6b35;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .interactive-tools {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tool-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .tool-button {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+            pointer-events: auto;
+            min-height: 44px;
+            min-width: 88px;
+            display: inline-block;
+            text-align: center;
+            line-height: 1;
+            font-size: 14px;
+        }
+
+        .tool-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            margin: 5% auto;
+            padding: 2rem;
+            border: 2px solid #ff6b35;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 600px;
+            color: white;
+            position: relative;
+            pointer-events: auto;
+            transform: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+
+        .close:hover {
+            color: #ff6b35;
+        }
+
+        .map-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .map-option {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+        }
+
+        .map-option:hover,
+        .map-option.selected {
+            border-color: #ff6b35;
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 2px solid #ff6b35;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            color: #ff6b35;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">🎯 決勝時刻攻略</div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">首頁</a></li>
+                        <li><a href="#strategies">戰術策略</a></li>
+                        <li><a href="#weapons">武器分析</a></li>
+                        <li><a href="#maps">地圖攻略</a></li>
+                        <li><a href="#tools">實用工具</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>決勝時刻穩贏攻略</h1>
+            <p>專業級遊戲指南，助您成為戰場上的王者</p>
+            <a href="#strategies" class="cta-button">開始學習</a>
+        </div>
+    </section>
+
+    <section id="strategies" class="section">
+        <div class="container">
+            <h2 class="section-title">🎮 戰術策略</h2>
+            <div class="strategies-grid">
+                <div class="strategy-card">
+                    <h3>🔫 近戰技巧</h3>
+                    <p>掌握近戰武器使用時機，學會閃避和突襲技巧。近戰武器在狹窄空間中具有極大優勢，適合快速擊殺敵人。</p>
+                    <ul>
+                        <li>保持移動，避免成為固定目標</li>
+                        <li>善用地形掩護</li>
+                        <li>預測敵人移動路徑</li>
+                        <li>掌握跳擊技巧</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🎯 遠距離狙擊</h3>
+                    <p>精準的狙擊技巧能讓您在遠距離掌控戰場。學會呼吸控制、目標預測和掩體利用。</p>
+                    <ul>
+                        <li>穩定呼吸節奏</li>
+                        <li>觀察敵人習慣路線</li>
+                        <li>準備多個撤退路線</li>
+                        <li>掌握開鏡時機</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🏃 團隊配合</h3>
+                    <p>團隊遊戲中，良好的配合是勝利關鍵。學習溝通、角色分工和戰術協作。</p>
+                    <ul>
+                        <li>及時分享敵人位置</li>
+                        <li>明確分工職責</li>
+                        <li>支援隊友</li>
+                        <li>制定戰術口令</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h3>💡 穩贏小技巧</h3>
+                <div class="tip-item">
+                    <div class="tip-number">1</div>
+                    <div>
+                        <strong>聲音定位：</strong>使用高品質耳機，通過聲音判斷敵人位置和數量
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">2</div>
+                    <div>
+                        <strong>地圖熟悉：</strong>熟記地圖資源點和戰術要衝，制定路線規劃
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">3</div>
+                    <div>
+                        <strong>武器配置：</strong>根據地圖和戰術需求，靈活調整武器配件
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">4</div>
+                    <div>
+                        <strong>心理戰：</strong>製造聲東擊西的效果，迷惑敵人判斷
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-number">5</div>
+                    <div>
+                        <strong>資源管理：</strong>合理分配彈藥和生命值，避免浪費
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="weapons" class="section">
+        <div class="container">
+            <h2 class="section-title">🔫 武器分析</h2>
+            <div class="weapon-stats">
+                <div class="weapon-card">
+                    <div class="weapon-name">突擊步槍 - M4 Carbine</div>
+                    <div>傷害: <div class="stat-bar"><div class="stat-fill" style="width: 75%"></div></div></div>
+                    <div>射速: <div class="stat-bar"><div class="stat-fill" style="width: 80%"></div></div></div>
+                    <div>精準度: <div class="stat-bar"><div class="stat-fill" style="width: 85%"></div></div></div>
+                    <div>穩定性: <div class="stat-bar"><div class="stat-fill" style="width: 90%"></div></div></div>
+                    <p><strong>適用場景：</strong>中距離戰鬥，全能型武器</p>
+                </div>
+                <div class="weapon-card">
+                    <div class="weapon-name">狙擊步槍 - Barrett .50cal</div>
+                    <div>傷害: <div class="stat-bar"><div class="stat-fill" style="width: 95%"></div></div></div>
+                    <div>射速: <div class="stat-bar"><div class="stat-fill" style="width: 40%"></div></div></div>
+                    <div>精準度: <div class="stat-bar"><div class="stat-fill" style="width: 98%"></div></div></div>
+                    <div>穩定性: <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div></div>
+                    <p><strong>適用場景：</strong>遠距離狙擊，一擊必殺</p>
+                </div>
+                <div class="weapon-card">
+                    <div class="weapon-name">衝鋒槍 - UMP45</div>
+                    <div>傷害: <div class="stat-bar"><div class="stat-fill" style="width: 70%"></div></div></div>
+                    <div>射速: <div class="stat-bar"><div class="stat-fill" style="width: 85%"></div></div></div>
+                    <div>精準度: <div class="stat-bar"><div class="stat-fill" style="width: 75%"></div></div></div>
+                    <div>穩定性: <div class="stat-bar"><div class="stat-fill" style="width: 80%"></div></div></div>
+                    <p><strong>適用場景：</strong>近距離戰鬥，室內作戰</p>
+                </div>
+                <div class="weapon-card">
+                    <div class="weapon-name">機槍 - M249 SAW</div>
+                    <div>傷害: <div class="stat-bar"><div class="stat-fill" style="width: 80%"></div></div></div>
+                    <div>射速: <div class="stat-bar"><div class="stat-fill" style="width: 95%"></div></div></div>
+                    <div>精準度: <div class="stat-bar"><div class="stat-fill" style="width: 60%"></div></div></div>
+                    <div>穩定性: <div class="stat-bar"><div class="stat-fill" style="width: 65%"></div></div></div>
+                    <p><strong>適用場景：</strong>團隊火力支援，壓制戰</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="maps" class="section">
+        <div class="container">
+            <h2 class="section-title">🗺️ 地圖攻略</h2>
+            <div class="strategies-grid">
+                <div class="strategy-card">
+                    <h3>🏠 高樓大廈</h3>
+                    <p>垂直戰鬥為主的地圖，掌握樓層控制和垂直移動技巧。</p>
+                    <ul>
+                        <li>控制主要樓梯和電梯</li>
+                        <li>利用窗戶進行狙擊</li>
+                        <li>預防敵人從上方突襲</li>
+                        <li>設置樓層間的陷阱</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🏭 工業區</h3>
+                    <p>狹窄通道較多，適合近戰武器和霰彈槍。</p>
+                    <ul>
+                        <li>控制主要通道</li>
+                        <li>利用工業設備掩護</li>
+                        <li>設置交叉火力點</li>
+                        <li>注意上方平台</li>
+                    </ul>
+                </div>
+                <div class="strategy-card">
+                    <h3>🌆 城市街道</h3>
+                    <p>開放與封閉空間結合，需要靈活武器配置。</p>
+                    <ul>
+                        <li>控制主要街道</li>
+                        <li>利用建築物掩體</li>
+                        <li>設置狙擊點</li>
+                        <li>準備撤退路線</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="section">
+        <div class="container">
+            <h2 class="section-title">🛠️ 實用工具</h2>
+            <div class="interactive-tools">
+                <div class="tool-card">
+                    <h3>🎯 戰術規劃器</h3>
+                    <p>制定您的戰術策略和團隊配合方案</p>
+                    <button class="tool-button" onclick="openTacticalPlanner()">開始規劃</button>
+                </div>
+                <div class="tool-card">
+                    <h3>📊 武器配裝器</h3>
+                    <p>找到最適合您的武器配裝組合</p>
+                    <button class="tool-button" onclick="openWeaponBuilder()">開始配裝</button>
+                </div>
+                <div class="tool-card">
+                    <h3>🗺️ 地圖分析器</h3>
+                    <p>深入分析各個地圖的戰術要點</p>
+                    <button class="tool-button" onclick="openMapAnalyzer()">開始分析</button>
+                </div>
+                <div class="tool-card">
+                    <h3>📈 技能提升器</h3>
+                    <p>測試和提升您的遊戲技能</p>
+                    <button class="tool-button" onclick="openSkillTester()">技能測試</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#">📧</a>
+                <a href="#">💬</a>
+                <a href="#">🐦</a>
+                <a href="#">📺</a>
+            </div>
+            <p>&copy; 2024 決勝時刻穩贏攻略. 專業級遊戲指南，助您成為戰場王者。</p>
+        </div>
+    </footer>
+
+    <!-- 戰術規劃器模態框 -->
+    <div id="tacticalPlanner" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('tacticalPlanner')">&times;</span>
+            <h2>🎯 戰術規劃器</h2>
+            <div class="map-selector">
+                <div class="map-option" onclick="selectMap(this, '高樓大廈')">🏠 高樓大廈</div>
+                <div class="map-option" onclick="selectMap(this, '工業區')">🏭 工業區</div>
+                <div class="map-option" onclick="selectMap(this, '城市街道')">🌆 城市街道</div>
+                <div class="map-option" onclick="selectMap(this, '軍事基地')">🎖️ 軍事基地</div>
+            </div>
+            <div id="tacticalPlan">
+                <h3>選擇地圖後查看詳細戰術規劃</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 武器配裝器模態框 -->
+    <div id="weaponBuilder" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('weaponBuilder')">&times;</span>
+            <h2>🔫 武器配裝器</h2>
+            <div class="map-selector">
+                <div class="map-option" onclick="selectWeapon(this, '突擊步槍')">🎯 突擊步槍</div>
+                <div class="map-option" onclick="selectWeapon(this, '狙擊步槍')">🎖️ 狙擊步槍</div>
+                <div class="map-option" onclick="selectWeapon(this, '衝鋒槍')">🔫 衝鋒槍</div>
+                <div class="map-option" onclick="selectWeapon(this, '機槍')">🔫 機槍</div>
+            </div>
+            <div id="weaponConfig">
+                <h3>選擇武器類型查看推薦配裝</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 地圖分析器模態框 -->
+    <div id="mapAnalyzer" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('mapAnalyzer')">&times;</span>
+            <h2>🗺️ 地圖分析器</h2>
+            <div class="map-selector">
+                <div class="map-option" onclick="analyzeMap(this, '高樓大廈')">🏠 高樓大廈</div>
+                <div class="map-option" onclick="analyzeMap(this, '工業區')">🏭 工業區</div>
+                <div class="map-option" onclick="analyzeMap(this, '城市街道')">🌆 城市街道</div>
+                <div class="map-option" onclick="analyzeMap(this, '軍事基地')">🎖️ 軍事基地</div>
+            </div>
+            <div id="mapAnalysis">
+                <h3>選擇地圖查看詳細分析</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- 技能測試模態框 -->
+    <div id="skillTester" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('skillTester')">&times;</span>
+            <h2>📈 技能測試</h2>
+            <div class="map-selector">
+                <div class="map-option" onclick="startTest(this, '反應速度')">⚡ 反應速度</div>
+                <div class="map-option" onclick="startTest(this, '精準度')">🎯 精準度</div>
+                <div class="map-option" onclick="startTest(this, '戰術意識')">🧠 戰術意識</div>
+                <div class="map-option" onclick="startTest(this, '團隊配合')">👥 團隊配合</div>
+            </div>
+            <div id="skillTest">
+                <h3>選擇測試類型開始評估</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滾動動畫
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.strategy-card, .weapon-card, .tool-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+
+        // 模態框功能
+        function openTacticalPlanner() {
+            console.log('打開戰術規劃器');
+            const modal = document.getElementById('tacticalPlanner');
+            modal.style.display = 'block';
+            modal.style.pointerEvents = 'auto';
+            console.log('戰術規劃器已打開');
+        }
+
+        function openWeaponBuilder() {
+            const modal = document.getElementById('weaponBuilder');
+            modal.style.display = 'block';
+            modal.style.pointerEvents = 'auto';
+            console.log('武器配裝器已打開');
+        }
+
+        function openMapAnalyzer() {
+            const modal = document.getElementById('mapAnalyzer');
+            modal.style.display = 'block';
+            modal.style.pointerEvents = 'auto';
+            console.log('地圖分析器已打開');
+        }
+
+        function openSkillTester() {
+            console.log('打開技能測試器');
+            const modal = document.getElementById('skillTester');
+            modal.style.display = 'block';
+            modal.style.pointerEvents = 'auto';
+            console.log('技能測試器已打開');
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'none';
+            modal.style.pointerEvents = 'none';
+            console.log(modalId + '已關閉');
+        }
+
+        // 點擊模態框外部關閉
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                event.target.style.pointerEvents = 'none';
+            }
+        }
+        
+        // 確保所有按鈕都能正常點擊
+        document.addEventListener('DOMContentLoaded', function() {
+            // 為所有按鈕添加點擊事件監聽器
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    console.log('按鈕被點擊:', this.textContent || this.innerHTML);
+                    // 添加點擊效果
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+            
+            // 為所有彈窗選項添加點擊事件監聽器
+            const mapOptions = document.querySelectorAll('.map-option');
+            mapOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    console.log('地圖選項被點擊:', this.textContent);
+                    // 添加點擊效果
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                });
+            });
+            
+            // 測試按鈕功能
+            console.log('頁面載入完成，測試按鈕功能:');
+            console.log('- 戰術規劃器按鈕:', typeof openTacticalPlanner);
+            console.log('- 武器配裝器按鈕:', typeof openWeaponBuilder);
+            console.log('- 地圖分析器按鈕:', typeof openMapAnalyzer);
+            console.log('- 技能測試器按鈕:', typeof openSkillTester);
+        });
+        
+        // 添加全局錯誤處理
+        window.addEventListener('error', function(e) {
+            console.error('頁面錯誤:', e.error);
+            alert('發生錯誤: ' + e.message);
+        });
+
+        // 戰術規劃功能
+        function selectMap(element, mapName) {
+            // 移除其他選中狀態
+            element.parentElement.querySelectorAll('.map-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            element.classList.add('selected');
+
+            const tacticalPlans = {
+                '高樓大廈': `
+                    <h3>🏠 高樓大廈戰術規劃</h3>
+                    <h4>🎯 主要控制點：</h4>
+                    <ul>
+                        <li>頂樓平台 - 狙擊點和觀察點</li>
+                        <li>中樓層 - 主要戰鬥區域</li>
+                        <li>底樓入口 - 防禦要點</li>
+                        <li>電梯間 - 垂直移動關鍵</li>
+                    </ul>
+                    <h4>⚡ 戰術建議：</h4>
+                    <ul>
+                        <li>配置至少一名狙擊手控制頂樓</li>
+                        <li>中樓層配置突擊步槍手</li>
+                        <li>底樓配置霰彈槍手防禦</li>
+                        <li>預防敵人從建築外部突襲</li>
+                    </ul>
+                `,
+                '工業區': `
+                    <h3>🏭 工業區戰術規劃</h3>
+                    <h4>🎯 主要控制點：</h4>
+                    <ul>
+                        <li>主要通道 - 火力壓制點</li>
+                        <li>控制室 - 戰術指揮中心</li>
+                        <li>機械區 - 近戰優勢區域</li>
+                        <li>外部平台 - 遠距離觀察點</li>
+                    </ul>
+                    <h4>⚡ 戰術建議：</h4>
+                    <ul>
+                        <li>配置衝鋒槍手控制主要通道</li>
+                        <li>控制室設置指揮官</li>
+                        <li>機械區配置霰彈槍手</li>
+                        <li>外部平台配置狙擊手</li>
+                    </ul>
+                `,
+                '城市街道': `
+                    <h3>🌆 城市街道戰術規劃</h3>
+                    <h4>🎯 主要控制點：</h4>
+                    <ul>
+                        <li>主要街道 - 火力投射區域</li>
+                        <li>建築物頂部 - 狙擊點</li>
+                        <li>小巷 - 偷襲和伏擊點</li>
+                        <li>廣場 - 開闊戰場</li>
+                    </ul>
+                    <h4>⚡ 戰術建議：</h4>
+                    <ul>
+                        <li>配置突擊步槍手控制街道</li>
+                        <li>建築物頂部配置狙擊手</li>
+                        <li>小巷配置機動部隊</li>
+                        <li>廣場配置火力支援</li>
+                    </ul>
+                `,
+                '軍事基地': `
+                    <h3>🎖️ 軍事基地戰術規劃</h3>
+                    <h4>🎯 主要控制點：</h4>
+                    <ul>
+                        <li>指揮中心 - 戰術核心</li>
+                        <li>軍械庫 - 資源點</li>
+                        <li>訓練場 - 開闊戰場</li>
+                        <li>營房區 - 近戰區域</li>
+                    </ul>
+                    <h4>⚡ 戰術建議：</h4>
+                    <ul>
+                        <li>指揮中心配置精英隊員</li>
+                        <li>軍械庫配置防禦部隊</li>
+                        <li>訓練場配置火力支援</li>
+                        <li>營房區配置近戰專家</li>
+                    </ul>
+                `
+            };
+
+            document.getElementById('tacticalPlan').innerHTML = tacticalPlans[mapName] || '<h3>暫無此地圖戰術規劃</h3>';
+        }
+
+        // 武器配裝功能
+        function selectWeapon(element, weaponType) {
+            // 移除其他選中狀態
+            element.parentElement.querySelectorAll('.map-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            element.classList.add('selected');
+
+            const weaponConfigs = {
+                '突擊步槍': `
+                    <h3>🎯 突擊步槍推薦配裝</h3>
+                    <h4>🔧 基礎配裝：</h4>
+                    <ul>
+                        <li>瞄具：紅點瞄準鏡 / 全息瞄準鏡</li>
+                        <li>槍管：加長槍管（精準度提升）</li>
+                        <li>下掛：前握把（穩定性提升）</li>
+                        <li>彈夾：擴大彈夾（增加容彈量）</li>
+                    </ul>
+                    <h4>⚡ 戰術配裝：</h4>
+                    <ul>
+                        <li>中距離：瞄具 + 加長槍管 + 前握把</li>
+                        <li>近距離：全息瞄準鏡 + 短槍管 + 擴大彈夾</li>
+                        <li>遠距離：高倍瞄準鏡 + 加長槍管 + 穩定器</li>
+                    </ul>
+                `,
+                '狙擊步槍': `
+                    <h3>🎖️ 狙擊步槍推薦配裝</h3>
+                    <h4>🔧 基礎配裝：</h4>
+                    <ul>
+                        <li>瞄具：高倍瞄準鏡（6-12倍）</li>
+                        <li>槍管：加長槍管（增加射程）</li>
+                        <li>下掛：抑制器（降低噪音）</li>
+                        <li>配件： bipod（穩定性）</li>
+                    </ul>
+                    <h4>⚡ 戰術配裝：</h4>
+                    <ul>
+                        <li>遠距離狙擊：高倍瞄準鏡 + 加長槍管 + bipod</li>
+                        <li>中距離狙擊：中倍瞄準鏡 + 抑制器</li>
+                        <li>機動狙擊：輕量化槍管 + 高倍瞄準鏡</li>
+                    </ul>
+                `,
+                '衝鋒槍': `
+                    <h3>🔫 衝鋒槍推薦配裝</h3>
+                    <h4>🔧 基礎配裝：</h4>
+                    <ul>
+                        <li>瞄具：紅點瞄準鏡 / 全息瞄準鏡</li>
+                        <li>槍管：短槍管（機動性提升）</li>
+                        <li>下掛：激光瞄準器（近戰精準度）</li>
+                        <li>彈夾：快速彈夾（換彈速度）</li>
+                    </ul>
+                    <h4>⚡ 戰術配裝：</h4>
+                    <ul>
+                        <li>室內作戰：紅點瞄準鏡 + 短槍管 + 激光瞄準器</li>
+                        <li>機動作戰：全息瞄準鏡 + 快速彈夾</li>
+                        <li>防禦配裝：抑制器 + 擴大彈夾</li>
+                    </ul>
+                `,
+                '機槍': `
+                    <h3>🔫 機槍推薦配裝</h3>
+                    <h4>🔧 基礎配裝：</h4>
+                    <ul>
+                        <li>瞄具：低倍瞄準鏡 / 全息瞄準鏡</li>
+                        <li>槍管：加長槍管（精準度）</li>
+                        <li>下掛：前握把（穩定性）</li>
+                        <li>彈夾：擴大彈夾 / 鼓型彈夾</li>
+                    </ul>
+                    <h4>⚡ 戰術配裝：</h4>
+                    <ul>
+                        <li>火力壓制：低倍瞄準鏡 + 鼓型彈夾 + 前握把</li>
+                        <li>防禦配裝：抑制器 + 擴大彈夾</li>
+                        <li>精準壓制：中倍瞄準鏡 + 加長槍管</li>
+                    </ul>
+                `
+            };
+
+            document.getElementById('weaponConfig').innerHTML = weaponConfigs[weaponType] || '<h3>暫無此武器配裝資訊</h3>';
+        }
+
+        // 地圖分析功能
+        function analyzeMap(element, mapName) {
+            // 移除其他選中狀態
+            element.parentElement.querySelectorAll('.map-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            element.classList.add('selected');
+
+            const mapAnalyses = {
+                '高樓大廈': `
+                    <h3>🏠 高樓大廈詳細分析</h3>
+                    <h4>🎯 地圖特色：</h4>
+                    <ul>
+                        <li>垂直戰鬥為主，多層樓結構</li>
+                        <li>窗戶和平台提供狙擊點</li>
+                        <li>電梯和樓梯是垂直移動關鍵</li>
+                        <li>建築外部有攀爬點</li>
+                    </ul>
+                    <h4>⚡ 戰術分析：</h4>
+                    <ul>
+                        <li>優勢：垂直戰鬥經驗豐富的玩家佔優</li>
+                        <li>劣勢：容易被上下夾擊</li>
+                        <li>建議：配置多種距離武器，準備垂直戰術</li>
+                        <li>風險：建築外部容易被狙擊</li>
+                    </ul>
+                `,
+                '工業區': `
+                    <h3>🏭 工業區詳細分析</h3>
+                    <h4>🎯 地圖特色：</h4>
+                    <ul>
+                        <li>狹窄通道和開闊空間結合</li>
+                        <li>工業設備提供豐富掩體</li>
+                        <li>多層結構，有懸浮平台</li>
+                        <li>機械噪音可能掩蔽腳步聲</li>
+                    </ul>
+                    <h4>⚡ 戰術分析：</h4>
+                    <ul>
+                        <li>優勢：近戰武器在狹窄通道佔優</li>
+                        <li>劣勢：開闊區域容易被遠距離攻擊</li>
+                        <li>建議：配置近戰和遠距離武器組合</li>
+                        <li>風險：機械噪音可能掩蔽敵人位置</li>
+                    </ul>
+                `,
+                '城市街道': `
+                    <h3>🌆 城市街道詳細分析</h3>
+                    <h4>🎯 地圖特色：</h4>
+                    <ul>
+                        <li>現代化城市環境</li>
+                        <li>建築物提供多層戰場</li>
+                        <li>小巷和街道交錯複雜</li>
+                        <li>汽車和設備提供掩體</li>
+                    </ul>
+                    <h4>⚡ 戰術分析：</h4>
+                    <ul>
+                        <li>優勢：多種戰術選擇，適應性強</li>
+                        <li>劣勢：容易陷入埋伏</li>
+                        <li>建議：配置全能型武器，保持機動性</li>
+                        <li>風險：街道容易被火力壓制</li>
+                    </ul>
+                `,
+                '軍事基地': `
+                    <h3>🎖️ 軍事基地詳細分析</h3>
+                    <h4>🎯 地圖特色：</h4>
+                    <ul>
+                        <li>軍事化設計，佈局嚴謹</li>
+                        <li>訓練場和靶場提供開闊區域</li>
+                        <li>營房區和指揮中心是戰略要點</li>
+                        <li>軍械庫提供資源點</li>
+                    </ul>
+                    <h4>⚡ 戰術分析：</h4>
+                    <ul>
+                        <li>優勢：戰術佈局清晰，易於控制</li>
+                        <li>劣勢：資源點容易成為戰鬥焦點</li>
+                        <li>建議：團隊配合，控制關鍵點</li>
+                        <li>風險：開闊訓練場容易被火力覆蓋</li>
+                    </ul>
+                `
+            };
+
+            document.getElementById('mapAnalysis').innerHTML = mapAnalyses[mapName] || '<h3>暫無此地圖分析資訊</h3>';
+        }
+
+        // 技能測試功能
+        function startTest(element, testType) {
+            console.log('開始測試:', testType);
+            // 移除其他選中狀態
+            element.parentElement.querySelectorAll('.map-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            element.classList.add('selected');
+
+            const skillTests = {
+                '反應速度': `
+                    <h3>⚡ 反應速度測試</h3>
+                    <div id="reactionTest">
+                        <p>準備測試您的反應速度！</p>
+                        <button class="tool-button" onclick="startReactionTest()">開始測試</button>
+                        <div id="reactionResult"></div>
+                    </div>
+                `,
+                '精準度': `
+                    <h3>🎯 精準度測試</h3>
+                    <div id="accuracyTest">
+                        <p>測試您的精準度水平！</p>
+                        <button class="tool-button" onclick="startAccuracyTest()">開始測試</button>
+                        <div id="accuracyResult"></div>
+                    </div>
+                `,
+                '戰術意識': `
+                    <h3>🧠 戰術意識測試</h3>
+                    <div id="tacticalTest">
+                        <p>評估您的戰術意識水平！</p>
+                        <button class="tool-button" onclick="startTacticalTest()">開始測試</button>
+                        <div id="tacticalResult"></div>
+                    </div>
+                `,
+                '團隊配合': `
+                    <h3>👥 團隊配合測試</h3>
+                    <div id="teamTest">
+                        <p>測試您的團隊配合能力！</p>
+                        <button class="tool-button" onclick="startTeamTest()">開始測試</button>
+                        <div id="teamResult"></div>
+                    </div>
+                `
+            };
+
+            document.getElementById('skillTest').innerHTML = skillTests[testType] || '<h3>暫無此測試項目</h3>';
+        }
+        
+        // 將函數暴露到全局作用域
+        window.startTest = startTest;
+
+        // 反應速度測試
+        function startReactionTest() {
+            const resultDiv = document.getElementById('reactionResult');
+            resultDiv.innerHTML = '<p>準備... 3秒後會出現綠色信號，請盡快點擊！</p>';
+            
+            setTimeout(() => {
+                const startTime = Date.now();
+                resultDiv.innerHTML = '<p style="color: green; font-size: 2rem;">點擊我！</p><button class="tool-button" onclick="recordReaction(' + startTime + ')">點擊</button>';
+            }, 3000);
+        }
+        
+        // 將函數暴露到全局作用域
+        window.startReactionTest = startReactionTest;
+        window.recordReaction = recordReaction;
+
+        function recordReaction(startTime) {
+            const reactionTime = Date.now() - startTime;
+            const resultDiv = document.getElementById('reactionResult');
+            
+            let level = '';
+            if (reactionTime < 200) level = '🏆 優秀 - 專業級反應';
+            else if (reactionTime < 300) level = '🥈 良好 - 高水平反應';
+            else if (reactionTime < 400) level = '🥉 一般 - 標準水平';
+            else level = '📚 需要提升 - 建議多練習';
+            
+            resultDiv.innerHTML = `
+                <p><strong>您的反應時間：${reactionTime} 毫秒</strong></p>
+                <p>${level}</p>
+                <button class="tool-button" onclick="startReactionTest()">再次測試</button>
+            `;
+        }
+
+        // 精準度測試
+        function startAccuracyTest() {
+            const resultDiv = document.getElementById('accuracyResult');
+            resultDiv.innerHTML = `
+                <p>測試您的精準度！請在10秒內點擊目標：</p>
+                <div style="position: relative; height: 200px; background: rgba(255,255,255,0.1); border-radius: 10px; margin: 1rem 0;">
+                    <div id="target" style="position: absolute; width: 30px; height: 30px; background: #ff6b35; border-radius: 50%; cursor: pointer; top: 50%; left: 50%; transform: translate(-50%, -50%);" onclick="hitTarget()"></div>
+                </div>
+                <p id="timer">時間：10秒</p>
+                <p id="score">得分：0</p>
+                <button class="tool-button" onclick="startAccuracyTest()">重新開始</button>
+            `;
+            
+            let timeLeft = 10;
+            let score = 0;
+            const timer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('timer').textContent = `時間：${timeLeft}秒`;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    endAccuracyTest(score);
+                }
+            }, 1000);
+            
+            // 移動目標
+            setInterval(() => {
+                if (timeLeft > 0) {
+                    const target = document.getElementById('target');
+                    const container = target.parentElement;
+                    const maxX = container.offsetWidth - 30;
+                    const maxY = container.offsetHeight - 30;
+                    const newX = Math.random() * maxX;
+                    const newY = Math.random() * maxY;
+                    target.style.left = newX + 'px';
+                    target.style.top = newY + 'px';
+                }
+            }, 1500);
+        }
+        
+        // 將函數暴露到全局作用域
+        window.startAccuracyTest = startAccuracyTest;
+        window.hitTarget = hitTarget;
+        window.endAccuracyTest = endAccuracyTest;
+
+        function hitTarget() {
+            let score = parseInt(document.getElementById('score').textContent.split('：')[1]);
+            score += 10;
+            document.getElementById('score').textContent = `得分：${score}`;
+        }
+
+        function endAccuracyTest(score) {
+            const resultDiv = document.getElementById('accuracyResult');
+            let level = '';
+            if (score >= 80) level = '🏆 神射手 - 極高精準度';
+            else if (score >= 60) level = '🥈 精準射手 - 高水平';
+            else if (score >= 40) level = '🥉 標準射手 - 良好水平';
+            else level = '📚 需要練習 - 建議多練習射擊';
+            
+            resultDiv.innerHTML = `
+                <p><strong>您的最終得分：${score} 分</strong></p>
+                <p>${level}</p>
+                <button class="tool-button" onclick="startAccuracyTest()">再次測試</button>
+            `;
+        }
+
+        // 戰術意識測試
+        function startTacticalTest() {
+            const resultDiv = document.getElementById('tacticalResult');
+            const questions = [
+                {
+                    question: "在狹窄通道遇到敵人時，最優先的選擇是？",
+                    options: ["直接衝鋒", "尋找掩體", "立即後退", "呼叫支援"],
+                    correct: 1
+                },
+                {
+                    question: "團隊作戰中，最重要的原則是？",
+                    options: ["個人英雄主義", "團隊配合", "單獨行動", "隨意戰術"],
+                    correct: 1
+                },
+                {
+                    question: "在遠距離遭遇戰中，最有效的策略是？",
+                    options: ["快速接近", "尋找掩體狙擊", "立即撤退", "等待敵人接近"],
+                    correct: 1
+                }
+            ];
+            
+            let currentQuestion = 0;
+            let score = 0;
+            
+            function showQuestion() {
+                if (currentQuestion < questions.length) {
+                    const q = questions[currentQuestion];
+                    resultDiv.innerHTML = `
+                        <p><strong>問題 ${currentQuestion + 1}/${questions.length}:</strong></p>
+                        <p>${q.question}</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
+                            ${q.options.map((option, index) => 
+                                `<button class="tool-button" onclick="answerQuestion(${index})">${option}</button>`
+                            ).join('')}
+                        </div>
+                    `;
+                } else {
+                    endTacticalTest(score);
+                }
+            }
+            
+            window.answerQuestion = function(index) {
+                if (index === questions[currentQuestion].correct) {
+                    score += 10;
+                }
+                currentQuestion++;
+                showQuestion();
+            };
+            
+            // 將函數暴露到全局作用域
+            window.startTacticalTest = startTacticalTest;
+            
+            showQuestion();
+        }
+
+        function endTacticalTest(score) {
+            const resultDiv = document.getElementById('tacticalResult');
+            let level = '';
+            if (score >= 30) level = '🏆 戰術大師 - 極高戰術意識';
+            else if (score >= 20) level = '🥈 戰術專家 - 良好戰術意識';
+            else if (score >= 10) level = '🥉 戰術學員 - 基礎戰術意識';
+            else level = '📚 戰術新手 - 需要學習戰術知識';
+            
+            resultDiv.innerHTML = `
+                <p><strong>您的戰術意識得分：${score} 分</strong></p>
+                <p>${level}</p>
+                <button class="tool-button" onclick="startTacticalTest()">再次測試</button>
+            `;
+        }
+
+        // 團隊配合測試
+        function startTeamTest() {
+            const resultDiv = document.getElementById('teamResult');
+            resultDiv.innerHTML = `
+                <p>團隊配合能力評估：</p>
+                <div style="margin: 1rem 0;">
+                    <label>溝通頻率：</label>
+                    <input type="range" min="1" max="10" value="5" id="communication" onchange="updateTeamScore()">
+                    <span id="commValue">5</span>
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label>支援意願：</label>
+                    <input type="range" min="1" max="10" value="5" id="support" onchange="updateTeamScore()">
+                    <span id="supportValue">5</span>
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label>戰術執行：</label>
+                    <input type="range" min="1" max="10" value="5" id="execution" onchange="updateTeamScore()">
+                    <span id="executionValue">5</span>
+                </div>
+                <div style="margin: 1rem 0;">
+                    <label>適應能力：</label>
+                    <input type="range" min="1" max="10" value="5" id="adaptability" onchange="updateTeamScore()">
+                    <span id="adaptabilityValue">5</span>
+                </div>
+                <button class="tool-button" onclick="calculateTeamScore()">計算團隊分數</button>
+                <div id="teamScoreResult"></div>
+            `;
+        }
+
+        function updateTeamScore() {
+            document.getElementById('commValue').textContent = document.getElementById('communication').value;
+            document.getElementById('supportValue').textContent = document.getElementById('support').value;
+            document.getElementById('executionValue').textContent = document.getElementById('execution').value;
+            document.getElementById('adaptabilityValue').textContent = document.getElementById('adaptability').value;
+        }
+        
+        // 將函數暴露到全局作用域
+        window.startTeamTest = startTeamTest;
+        window.updateTeamScore = updateTeamScore;
+        window.calculateTeamScore = calculateTeamScore;
+
+        function calculateTeamScore() {
+            const comm = parseInt(document.getElementById('communication').value);
+            const support = parseInt(document.getElementById('support').value);
+            const execution = parseInt(document.getElementById('execution').value);
+            const adaptability = parseInt(document.getElementById('adaptability').value);
+            
+            const totalScore = comm + support + execution + adaptability;
+            const resultDiv = document.getElementById('teamScoreResult');
+            
+            let level = '';
+            if (totalScore >= 35) level = '🏆 團隊領袖 - 優秀團隊配合能力';
+            else if (totalScore >= 25) level = '🥈 團隊精英 - 良好團隊配合';
+            else if (totalScore >= 15) level = '🥉 團隊成員 - 基礎團隊配合';
+            else level = '📚 團隊學員 - 需要提升團隊配合';
+            
+            resultDiv.innerHTML = `
+                <p><strong>您的團隊配合總分：${totalScore} 分</strong></p>
+                <p>${level}</p>
+                <p><strong>詳細評估：</strong></p>
+                <ul>
+                    <li>溝通能力：${comm}/10</li>
+                    <li>支援精神：${support}/10</li>
+                    <li>戰術執行：${execution}/10</li>
+                    <li>適應能力：${adaptability}/10</li>
+                </ul>
+                <button class="tool-button" onclick="startTeamTest()">重新評估</button>
+            `;
+        }
+
+        // 頁面載入完成後的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加載入動畫
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease';
+                document.body.style.opacity = '1';
+            }, 100);
+            
+            // 確保所有函數都正確暴露到全局作用域
+            console.log('技能測試函數已載入:', {
+                openSkillTester: typeof openSkillTester,
+                startReactionTest: typeof startReactionTest,
+                startAccuracyTest: typeof startAccuracyTest,
+                startTacticalTest: typeof startTacticalTest,
+                startTeamTest: typeof startTeamTest
+            });
+        });
+        
+        // 添加錯誤處理
+        window.addEventListener('error', function(e) {
+            console.error('技能測試錯誤:', e.error);
+            alert('技能測試功能發生錯誤，請刷新頁面重試。');
+        });
+    </script>
+</body>
+</html>
